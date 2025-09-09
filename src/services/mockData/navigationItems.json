@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Home",
+    "href": "#home",
+    "active": true
+  },
+  {
+    "label": "Services", 
+    "href": "#services",
+    "active": false
+  },
+  {
+    "label": "About",
+    "href": "#about", 
+    "active": false
+  },
+  {
+    "label": "Contact",
+    "href": "#contact",
+    "active": false
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "Id": 1,
+    "icon": "Zap",
+    "title": "AI-Assisted Development",
+    "description": "Leverage cutting-edge AI tools to accelerate development timelines by 3x while maintaining enterprise-grade code quality and best practices."
+  },
+  {
+    "Id": 2,
+    "icon": "Eye", 
+    "title": "Demo-First Approach",
+    "description": "See your vision come to life with working prototypes before full development. Make informed decisions with tangible demonstrations."
+  },
+  {
+    "Id": 3,
+    "icon": "Shield",
+    "title": "Complete Ownership", 
+    "description": "Own 100% of your code, infrastructure, and intellectual property. No vendor lock-in, no licensing fees, no hidden dependencies."
+  }
+]
