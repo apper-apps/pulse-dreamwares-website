@@ -9,10 +9,11 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const navigationItems = [
+const navigationItems = [
     { label: "Home", href: "#home", active: true },
     { label: "Services", href: "#services", active: false },
     { label: "About", href: "#about", active: false },
+    { label: "FAQ", href: "#faq", active: false },
     { label: "Contact", href: "#contact", active: false }
   ];
 

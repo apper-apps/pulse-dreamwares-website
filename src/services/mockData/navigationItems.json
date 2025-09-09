@@ -14,6 +14,11 @@
     "href": "#about", 
     "active": false
   },
+{
+    "label": "FAQ",
+    "href": "#faq",
+    "active": false
+  },
   {
     "label": "Contact",
     "href": "#contact",
