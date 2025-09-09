@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "@/components/organisms/Header";
 import HeroSection from "@/components/organisms/HeroSection";
+import TargetIndustries from "@/components/organisms/TargetIndustries";
 import ProcessTimeline from "@/components/organisms/ProcessTimeline";
 import ProductPortfolio from "@/components/organisms/ProductPortfolio";
 import ComparisonTable from "@/components/organisms/ComparisonTable";
@@ -13,6 +14,7 @@ const HomePage = () => {
       <Header />
       <main>
 <HeroSection />
+<TargetIndustries />
         <ProcessTimeline />
         <ProductPortfolio />
         <ComparisonTable />
