@@ -35,4 +35,34 @@ html {
 .Toastify__toast--info {
   background: linear-gradient(135deg, #2563EB, #1D4ED8);
   color: white;
+/* Animation Performance Optimizations */
+.animate-smooth {
+  will-change: transform, opacity;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* GPU Acceleration for Smooth Animations */
+.gpu-accelerate {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Smooth Hover Transitions */
+.hover-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Performance-optimized transforms */
+.transform-gpu {
+  transform: translate3d(0, 0, 0);
+}
 }

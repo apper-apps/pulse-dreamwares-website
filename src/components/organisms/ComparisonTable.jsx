@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import Container from "@/components/atoms/Container";
 import ApperIcon from "@/components/ApperIcon";
-
 const ComparisonTable = () => {
   const [openAccordion, setOpenAccordion] = useState(null);
 
@@ -61,34 +61,71 @@ const ComparisonTable = () => {
   };
 
   return (
-    <section className="py-16 lg:py-24 bg-gray-50">
+<section className="py-16 lg:py-24 bg-gray-50 overflow-hidden">
       <Container>
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-black text-gray-900 mb-4">
+        <motion.div 
+          className="text-center mb-12"
+          initial={{ opacity: 0, x: -60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <motion.h2 
+            className="text-3xl lg:text-4xl font-black text-gray-900 mb-4"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             Why Choose{" "}
             <span className="bg-gradient-to-r from-primary-500 to-purple-500 bg-clip-text text-transparent">
               Dreamwares AI?
             </span>
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            className="text-lg text-gray-600 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
             Compare our AI-powered approach with traditional development and freelancers
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Desktop Table View */}
-        <div className="hidden lg:block overflow-x-auto">
+        <motion.div 
+          className="hidden lg:block overflow-x-auto"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
           <table className="w-full bg-white rounded-2xl shadow-xl overflow-hidden">
-            <thead className="bg-gradient-to-r from-gray-50 to-gray-100">
+            <motion.thead 
+              className="bg-gradient-to-r from-gray-50 to-gray-100"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
               <tr>
                 <th className="px-8 py-6 text-left text-lg font-bold text-gray-900">Features</th>
                 <th className="px-8 py-6 text-center text-lg font-bold text-gray-700">Traditional Development</th>
                 <th className="px-8 py-6 text-center text-lg font-bold text-gray-700">Freelancers</th>
                 <th className="px-8 py-6 text-center text-lg font-bold bg-gradient-to-r from-primary-500 to-purple-500 bg-clip-text text-transparent">Dreamwares AI</th>
               </tr>
-            </thead>
+            </motion.thead>
             <tbody>
               {comparisonData.map((item, index) => (
-                <tr key={item.id} className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}>
+                <motion.tr 
+                  key={item.id} 
+                  className={`${index % 2 === 0 ? "bg-gray-50" : "bg-white"} hover:bg-gray-100 transition-colors duration-200`}
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.6 + (index * 0.1) }}
+                >
                   <td className="px-8 py-6 font-semibold text-gray-900">{item.category}</td>
                   <td className="px-8 py-6 text-center text-gray-600">{item.traditional}</td>
                   <td className="px-8 py-6 text-center text-gray-600">{item.freelancers}</td>
@@ -100,40 +137,73 @@ const ComparisonTable = () => {
                       <span className="font-semibold text-success-600">{item.dreamwares}</span>
                     </div>
                   </td>
-                </tr>
+                </motion.tr>
               ))}
             </tbody>
           </table>
-        </div>
+        </motion.div>
 
         {/* Mobile Accordion View */}
         <div className="lg:hidden space-y-4">
-          {comparisonData.map((item) => (
-            <div key={item.id} className="bg-white rounded-xl shadow-lg overflow-hidden">
-              <button
+          {comparisonData.map((item, index) => (
+            <motion.div 
+              key={item.id} 
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ scale: 1.02 }}
+            >
+              <motion.button
                 onClick={() => toggleAccordion(item.id)}
-                className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+                className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors duration-200"
+                whileTap={{ scale: 0.98 }}
               >
                 <span className="font-semibold text-gray-900">{item.category}</span>
-                <ApperIcon 
-                  name={openAccordion === item.id ? "ChevronUp" : "ChevronDown"} 
-                  size={20} 
-                  className="text-gray-400"
-                />
-              </button>
+                <motion.div
+                  animate={{ rotate: openAccordion === item.id ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <ApperIcon name="ChevronDown" size={20} className="text-gray-400" />
+                </motion.div>
+              </motion.button>
               
-              {openAccordion === item.id && (
+              <motion.div
+                initial={false}
+                animate={{
+                  height: openAccordion === item.id ? "auto" : 0,
+                  opacity: openAccordion === item.id ? 1 : 0
+                }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                style={{ overflow: "hidden" }}
+              >
                 <div className="px-6 pb-6 space-y-4 border-t border-gray-100">
                   <div className="grid grid-cols-1 gap-3 pt-4">
-                    <div className="flex justify-between items-center">
+                    <motion.div 
+                      className="flex justify-between items-center"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: openAccordion === item.id ? 1 : 0, x: openAccordion === item.id ? 0 : -20 }}
+                      transition={{ delay: 0.1 }}
+                    >
                       <span className="text-sm text-gray-500">Traditional</span>
                       <span className="text-sm text-gray-700">{item.traditional}</span>
-                    </div>
-                    <div className="flex justify-between items-center">
+                    </motion.div>
+                    <motion.div 
+                      className="flex justify-between items-center"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: openAccordion === item.id ? 1 : 0, x: openAccordion === item.id ? 0 : -20 }}
+                      transition={{ delay: 0.2 }}
+                    >
                       <span className="text-sm text-gray-500">Freelancers</span>
                       <span className="text-sm text-gray-700">{item.freelancers}</span>
-                    </div>
-                    <div className="flex justify-between items-center bg-success-50 rounded-lg p-3">
+                    </motion.div>
+                    <motion.div 
+                      className="flex justify-between items-center bg-success-50 rounded-lg p-3"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: openAccordion === item.id ? 1 : 0, x: openAccordion === item.id ? 0 : -20 }}
+                      transition={{ delay: 0.3 }}
+                    >
                       <span className="text-sm font-medium text-success-700">Dreamwares AI</span>
                       <div className="flex items-center space-x-2">
                         {item.dreamwaresAdvantage && (
@@ -141,11 +211,11 @@ const ComparisonTable = () => {
                         )}
                         <span className="text-sm font-semibold text-success-600">{item.dreamwares}</span>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
-              )}
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
       </Container>

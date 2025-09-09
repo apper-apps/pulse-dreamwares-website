@@ -1,7 +1,7 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import Container from '@/components/atoms/Container';
 import ApperIcon from '@/components/ApperIcon';
-
 const processSteps = [
   {
     number: 1,
@@ -49,51 +49,109 @@ const processSteps = [
 
 function ProcessTimeline() {
   return (
-    <section id="process" className="py-20 bg-gradient-to-br from-slate-50 to-white">
+<section id="process" className="py-20 bg-gradient-to-br from-slate-50 to-white overflow-hidden">
       <Container>
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: -40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <motion.h2 
+            className="text-4xl font-bold text-gray-900 mb-4"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             Our Development Process
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            className="text-xl text-gray-600 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
             A proven seven-step process that ensures your project's success from concept to launch
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         <div className="relative">
           {/* Desktop Timeline */}
           <div className="hidden lg:block">
             <div className="grid grid-cols-7 gap-8">
               {processSteps.map((step, index) => (
-                <div key={step.number} className="relative">
+                <motion.div 
+                  key={step.number} 
+                  className="relative"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: index * 0.15,
+                    ease: "easeOut"
+                  }}
+                >
                   {/* Connecting Line */}
                   {index < processSteps.length - 1 && (
-                    <div className="absolute top-12 left-full w-8 h-0.5 bg-gradient-to-r from-primary-500 to-primary-600 z-0"></div>
+                    <motion.div 
+                      className="absolute top-12 left-full w-8 h-0.5 bg-gradient-to-r from-primary-500 to-primary-600 z-0"
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: (index * 0.15) + 0.3 }}
+                      style={{ transformOrigin: "left" }}
+                    />
                   )}
                   
                   {/* Step Content */}
                   <div className="relative z-10 text-center">
                     {/* Icon Circle */}
-                    <div className="w-24 h-24 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <motion.div 
+                      className="w-24 h-24 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg hover:shadow-xl transition-all duration-300"
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
                       <ApperIcon name={step.icon} size={32} className="text-white" />
-                    </div>
+                    </motion.div>
                     
                     {/* Step Number */}
-                    <div className="w-8 h-8 bg-primary-500 text-white rounded-full flex items-center justify-center text-sm font-bold mx-auto mb-3">
+                    <motion.div 
+                      className="w-8 h-8 bg-primary-500 text-white rounded-full flex items-center justify-center text-sm font-bold mx-auto mb-3 hover:bg-primary-600 transition-colors duration-200"
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: (index * 0.15) + 0.6 }}
+                    >
                       {step.number}
-                    </div>
+                    </motion.div>
                     
                     {/* Title */}
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    <motion.h3 
+                      className="text-lg font-semibold text-gray-900 mb-2"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: (index * 0.15) + 0.8 }}
+                    >
                       {step.title}
-                    </h3>
+                    </motion.h3>
                     
                     {/* Description */}
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <motion.p 
+                      className="text-sm text-gray-600 leading-relaxed"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: (index * 0.15) + 1.0 }}
+                    >
                       {step.description}
-                    </p>
+                    </motion.p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -102,23 +160,57 @@ function ProcessTimeline() {
           <div className="lg:hidden">
             <div className="space-y-8">
               {processSteps.map((step, index) => (
-                <div key={step.number} className="relative flex items-start">
+                <motion.div 
+                  key={step.number} 
+                  className="relative flex items-start"
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: index * 0.15,
+                    ease: "easeOut"
+                  }}
+                >
                   {/* Vertical Line */}
                   {index < processSteps.length - 1 && (
-                    <div className="absolute left-12 top-24 w-0.5 h-16 bg-gradient-to-b from-primary-500 to-primary-600"></div>
+                    <motion.div 
+                      className="absolute left-12 top-24 w-0.5 h-16 bg-gradient-to-b from-primary-500 to-primary-600"
+                      initial={{ scaleY: 0 }}
+                      whileInView={{ scaleY: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: (index * 0.15) + 0.3 }}
+                      style={{ transformOrigin: "top" }}
+                    />
                   )}
                   
                   {/* Icon Circle */}
-                  <div className="w-24 h-24 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
+                  <motion.div 
+                    className="w-24 h-24 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center shadow-lg flex-shrink-0 hover:shadow-xl transition-all duration-300"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
                     <ApperIcon name={step.icon} size={28} className="text-white" />
-                  </div>
+                  </motion.div>
                   
                   {/* Content */}
-                  <div className="ml-6 flex-1">
+                  <motion.div 
+                    className="ml-6 flex-1"
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: (index * 0.15) + 0.3 }}
+                  >
                     <div className="flex items-center mb-2">
-                      <div className="w-6 h-6 bg-primary-500 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3">
+                      <motion.div 
+                        className="w-6 h-6 bg-primary-500 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3 hover:bg-primary-600 transition-colors duration-200"
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.3, delay: (index * 0.15) + 0.5 }}
+                      >
                         {step.number}
-                      </div>
+                      </motion.div>
                       <h3 className="text-xl font-semibold text-gray-900">
                         {step.title}
                       </h3>
@@ -126,8 +218,8 @@ function ProcessTimeline() {
                     <p className="text-gray-600 leading-relaxed">
                       {step.description}
                     </p>
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               ))}
             </div>
           </div>
