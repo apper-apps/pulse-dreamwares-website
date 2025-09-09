@@ -1,0 +1,50 @@
+[
+  {
+    "Id": 1,
+    "category": "Speed",
+    "traditional": "6-12 months",
+    "freelancers": "3-8 months", 
+    "dreamwares": "2-6 weeks",
+    "dreamwaresAdvantage": true
+  },
+  {
+    "Id": 2,
+    "category": "Cost",
+    "traditional": "$50K-200K+",
+    "freelancers": "$10K-50K",
+    "dreamwares": "$5K-25K", 
+    "dreamwaresAdvantage": true
+  },
+  {
+    "Id": 3,
+    "category": "Ownership",
+    "traditional": "Partial/Licensed",
+    "freelancers": "Full ownership",
+    "dreamwares": "100% ownership",
+    "dreamwaresAdvantage": true
+  },
+  {
+    "Id": 4,
+    "category": "Communication", 
+    "traditional": "Complex hierarchies",
+    "freelancers": "Direct but inconsistent",
+    "dreamwares": "Direct & AI-enhanced",
+    "dreamwaresAdvantage": true
+  },
+  {
+    "Id": 5,
+    "category": "Support",
+    "traditional": "Limited post-launch",
+    "freelancers": "Variable availability", 
+    "dreamwares": "Ongoing AI support",
+    "dreamwaresAdvantage": true
+  },
+  {
+    "Id": 6,
+    "category": "Delivery",
+    "traditional": "Waterfall approach",
+    "freelancers": "Mixed methodologies",
+    "dreamwares": "Demo-first iterative",
+    "dreamwaresAdvantage": true
+  }
+]
