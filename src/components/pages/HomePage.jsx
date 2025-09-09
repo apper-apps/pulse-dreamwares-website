@@ -1,8 +1,11 @@
 import React from "react";
 import Header from "@/components/organisms/Header";
 import HeroSection from "@/components/organisms/HeroSection";
+import ProcessTimeline from "@/components/organisms/ProcessTimeline";
+import ProductPortfolio from "@/components/organisms/ProductPortfolio";
 import ComparisonTable from "@/components/organisms/ComparisonTable";
 import ValuePropositions from "@/components/organisms/ValuePropositions";
+import TestimonialsSection from "@/components/organisms/TestimonialsSection";
 import FAQSection from "@/components/organisms/FAQSection";
 const HomePage = () => {
   return (
@@ -10,8 +13,11 @@ const HomePage = () => {
       <Header />
       <main>
 <HeroSection />
+        <ProcessTimeline />
+        <ProductPortfolio />
         <ComparisonTable />
         <ValuePropositions />
+        <TestimonialsSection />
         <FAQSection />
       </main>
     </div>

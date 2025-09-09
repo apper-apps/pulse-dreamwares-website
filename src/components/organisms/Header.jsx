@@ -11,8 +11,10 @@ const Header = () => {
 
 const navigationItems = [
     { label: "Home", href: "#home", active: true },
+    { label: "Process", href: "#process", active: false },
+    { label: "Portfolio", href: "#portfolio", active: false },
     { label: "Services", href: "#services", active: false },
-    { label: "About", href: "#about", active: false },
+    { label: "Testimonials", href: "#testimonials", active: false },
     { label: "FAQ", href: "#faq", active: false },
     { label: "Contact", href: "#contact", active: false }
   ];
