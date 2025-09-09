@@ -8,6 +8,7 @@ import ComparisonTable from "@/components/organisms/ComparisonTable";
 import ValuePropositions from "@/components/organisms/ValuePropositions";
 import TestimonialsSection from "@/components/organisms/TestimonialsSection";
 import FAQSection from "@/components/organisms/FAQSection";
+import ContactSection from "@/components/organisms/ContactSection";
 const HomePage = () => {
   return (
     <div className="min-h-screen bg-white">
@@ -20,7 +21,8 @@ const HomePage = () => {
         <ComparisonTable />
         <ValuePropositions />
         <TestimonialsSection />
-        <FAQSection />
+<FAQSection />
+        <ContactSection />
       </main>
     </div>
   );
