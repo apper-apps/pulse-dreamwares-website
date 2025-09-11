@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Container from "@/components/atoms/Container";
 import Button from "@/components/atoms/Button";
 import { toast } from "react-toastify";
-import { ApperIcon } from "@/components/ApperIcon";
+import ApperIcon from "@/components/ApperIcon";
 const HeroSection = () => {
   const handleCTAClick = () => {
     toast.success("Thank you for your interest! We'll be in touch soon.");
