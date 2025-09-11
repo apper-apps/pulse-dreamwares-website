@@ -299,7 +299,7 @@ className="bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 text-center shadow-lg
     );
   }
 
-  function ProcessDiagram() {
+function ProcessDiagram() {
     const [activeStep, setActiveStep] = useState(0);
 
     const steps = [
@@ -424,9 +424,8 @@ className={`w-16 h-16 rounded-full flex items-center justify-center shadow-lg tr
             </motion.div>
           ))}
 </div>
-      </motion.div>
+</motion.div>
     );
-);
   }
 
 export default HeroSection;
