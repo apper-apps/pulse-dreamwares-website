@@ -112,7 +112,7 @@ function ContactSection() {
   ];
 
   return (
-<section id="contact" className="py-20 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+<section id="contact" className="py-20 bg-gradient-to-b from-gray-900 to-black overflow-hidden">
       <Container>
         <motion.div 
           className="text-center mb-16"
@@ -122,7 +122,7 @@ function ContactSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+className="text-4xl md:text-5xl font-bold text-white mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -131,7 +131,7 @@ function ContactSection() {
             Ready to Transform Your Business?
           </motion.h2>
           <motion.p 
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
+className="text-xl text-gray-300 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -144,7 +144,7 @@ function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Contact Form */}
           <motion.div 
-            className="bg-white rounded-2xl shadow-xl p-8 lg:p-10 hover:shadow-2xl transition-all duration-500"
+className="bg-gray-800 rounded-2xl shadow-xl p-8 lg:p-10 hover:shadow-2xl transition-all duration-500 border border-gray-700"
             initial={{ opacity: 0, x: -60 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -157,10 +157,10 @@ function ContactSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">
+<h3 className="text-2xl font-bold text-white mb-3">
                 Get Your Free Consultation
               </h3>
-              <p className="text-gray-600">
+<p className="text-gray-300">
                 Fill out the form below and we'll get back to you within 24 hours.
               </p>
             </motion.div>
@@ -177,7 +177,7 @@ function ContactSection() {
                   whileFocus={{ scale: 1.02 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+<label htmlFor="name" className="block text-sm font-semibold text-gray-300 mb-2">
                     Full Name *
                   </label>
                   <input
@@ -187,10 +187,10 @@ function ContactSection() {
                     value={formData.name}
                     onChange={handleInputChange}
                     className={cn(
-                      "w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 hover:border-primary-300",
+"w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 hover:border-red-400 bg-gray-700 text-white",
                       errors.name 
-                        ? "border-red-300 focus:ring-red-500 focus:border-red-500" 
-                        : "border-gray-300 focus:ring-primary-500 focus:border-primary-500"
+                        ? "border-red-400 focus:ring-red-500 focus:border-red-500" 
+                        : "border-gray-600 focus:ring-red-500 focus:border-red-500"
                     )}
                     placeholder="John Doe"
                   />
@@ -211,7 +211,7 @@ function ContactSection() {
                   whileFocus={{ scale: 1.02 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+<label htmlFor="email" className="block text-sm font-semibold text-gray-300 mb-2">
                     Email Address *
                   </label>
                   <input
@@ -221,10 +221,10 @@ function ContactSection() {
                     value={formData.email}
                     onChange={handleInputChange}
                     className={cn(
-                      "w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 hover:border-primary-300",
+"w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 hover:border-red-400 bg-gray-700 text-white",
                       errors.email 
-                        ? "border-red-300 focus:ring-red-500 focus:border-red-500" 
-                        : "border-gray-300 focus:ring-primary-500 focus:border-primary-500"
+                        ? "border-red-400 focus:ring-red-500 focus:border-red-500" 
+                        : "border-gray-600 focus:ring-red-500 focus:border-red-500"
                     )}
                     placeholder="john@company.com"
                   />
@@ -253,7 +253,7 @@ function ContactSection() {
                   whileFocus={{ scale: 1.02 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <label htmlFor="company" className="block text-sm font-semibold text-gray-700 mb-2">
+<label htmlFor="company" className="block text-sm font-semibold text-gray-300 mb-2">
                     Company Name *
                   </label>
                   <input
@@ -263,10 +263,10 @@ function ContactSection() {
                     value={formData.company}
                     onChange={handleInputChange}
                     className={cn(
-                      "w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 hover:border-primary-300",
+"w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 hover:border-red-400 bg-gray-700 text-white",
                       errors.company 
-                        ? "border-red-300 focus:ring-red-500 focus:border-red-500" 
-                        : "border-gray-300 focus:ring-primary-500 focus:border-primary-500"
+                        ? "border-red-400 focus:ring-red-500 focus:border-red-500" 
+                        : "border-gray-600 focus:ring-red-500 focus:border-red-500"
                     )}
                     placeholder="Your Company"
                   />
@@ -287,7 +287,7 @@ function ContactSection() {
                   whileFocus={{ scale: 1.02 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <label htmlFor="projectType" className="block text-sm font-semibold text-gray-700 mb-2">
+<label htmlFor="projectType" className="block text-sm font-semibold text-gray-300 mb-2">
                     Project Type *
                   </label>
                   <select
@@ -295,11 +295,11 @@ function ContactSection() {
                     name="projectType"
                     value={formData.projectType}
                     onChange={handleInputChange}
-                    className={cn(
-                      "w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 bg-white hover:border-primary-300",
+className={cn(
+                      "w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 bg-gray-700 text-white hover:border-red-400",
                       errors.projectType 
-                        ? "border-red-300 focus:ring-red-500 focus:border-red-500" 
-                        : "border-gray-300 focus:ring-primary-500 focus:border-primary-500"
+                        ? "border-red-400 focus:ring-red-500 focus:border-red-500" 
+                        : "border-gray-600 focus:ring-red-500 focus:border-red-500"
                     )}
                   >
                     {projectTypes.map((type) => (
@@ -330,7 +330,9 @@ function ContactSection() {
                 whileFocus={{ scale: 1.01 }}
               >
                 <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Project Details *
+<label htmlFor="message" className="block text-sm font-semibold text-gray-300 mb-2">
+                    Project Details *
+                  </label>
                 </label>
                 <textarea
                   id="message"
@@ -339,10 +341,10 @@ function ContactSection() {
                   value={formData.message}
                   onChange={handleInputChange}
                   className={cn(
-                    "w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 resize-vertical hover:border-primary-300",
+"w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 resize-vertical hover:border-red-400 bg-gray-700 text-white",
                     errors.message 
-                      ? "border-red-300 focus:ring-red-500 focus:border-red-500" 
-                      : "border-gray-300 focus:ring-primary-500 focus:border-primary-500"
+                      ? "border-red-400 focus:ring-red-500 focus:border-red-500" 
+                      : "border-gray-600 focus:ring-red-500 focus:border-red-500"
                   )}
                   placeholder="Tell us about your project, goals, timeline, and any specific requirements..."
                 />
@@ -392,8 +394,8 @@ function ContactSection() {
             </form>
 
             {/* Trust Badges */}
-            <motion.div 
-              className="mt-8 pt-8 border-t border-gray-200"
+<motion.div 
+              className="mt-8 pt-8 border-t border-gray-700"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -418,11 +420,11 @@ function ContactSection() {
                         <ApperIcon 
                           name={badge.icon} 
                           size={24} 
-                          className="text-success-500" 
+className="text-red-500" 
                         />
                       </motion.div>
                     </div>
-                    <p className="text-xs text-gray-600 font-medium">
+<p className="text-xs text-gray-400 font-medium">
                       {badge.text}
                     </p>
                   </motion.div>
@@ -434,14 +436,14 @@ function ContactSection() {
           {/* Contact Information */}
           <div className="space-y-8">
             <motion.div 
-              className="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-500"
+className="bg-gray-800 rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-500 border border-gray-700"
               initial={{ opacity: 0, x: 60 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <motion.h3 
-                className="text-2xl font-bold text-gray-900 mb-6"
+className="text-2xl font-bold text-white mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -452,30 +454,30 @@ function ContactSection() {
               
               <div className="space-y-6">
                 {[
-                  {
+{
                     icon: "Phone",
-                    bgColor: "bg-primary-100",
-                    iconColor: "text-primary-600",
+                    bgColor: "bg-red-900",
+                    iconColor: "text-red-400",
                     title: "Phone",
                     subtitle: "Ready to talk? Give us a call",
                     contact: "+1 (555) 123-4567",
                     href: "tel:+1-555-123-4567",
-                    linkColor: "text-primary-600 hover:text-primary-700"
+                    linkColor: "text-red-400 hover:text-red-300"
                   },
                   {
                     icon: "Mail",
-                    bgColor: "bg-success-100",
-                    iconColor: "text-success-600",
+                    bgColor: "bg-red-900",
+                    iconColor: "text-red-400",
                     title: "Email",
                     subtitle: "Send us an email anytime",
                     contact: "contact@dreamwares.com",
                     href: "mailto:contact@dreamwares.com",
-                    linkColor: "text-success-600 hover:text-success-700"
+                    linkColor: "text-red-400 hover:text-red-300"
                   },
                   {
                     icon: "MapPin",
-                    bgColor: "bg-purple-100",
-                    iconColor: "text-purple-600",
+                    bgColor: "bg-red-900",
+                    iconColor: "text-red-400",
                     title: "Office",
                     subtitle: "Come visit our office",
                     contact: "123 Innovation Drive\nTech City, TC 12345",
@@ -522,16 +524,16 @@ function ContactSection() {
             </motion.div>
 
             {/* Response Time Card */}
-            <motion.div 
-              className="bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl p-8 text-white relative overflow-hidden hover:from-primary-600 hover:to-primary-700 transition-all duration-500"
+<motion.div 
+              className="bg-gradient-to-r from-red-600 to-red-700 rounded-2xl p-8 text-white relative overflow-hidden hover:from-red-700 hover:to-red-800 transition-all duration-500"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
               whileHover={{ scale: 1.02 }}
             >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-purple-600 to-primary-700 opacity-0"
+<motion.div
+                className="absolute inset-0 bg-gradient-to-r from-red-700 to-red-800 opacity-0"
                 whileHover={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
               />
@@ -552,7 +554,7 @@ function ContactSection() {
                   <h3 className="text-2xl font-bold">Quick Response</h3>
                 </motion.div>
                 <motion.p 
-                  className="text-primary-100 mb-4"
+className="text-red-100 mb-4"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -578,7 +580,7 @@ function ContactSection() {
                         whileHover={{ scale: 1.2 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <ApperIcon name="CheckCircle" size={20} className="mr-3 text-success-300" />
+<ApperIcon name="CheckCircle" size={20} className="mr-3 text-red-300" />
                       </motion.div>
                       <span>{item}</span>
                     </motion.li>

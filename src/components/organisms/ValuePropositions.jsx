@@ -26,7 +26,7 @@ const ValuePropositions = () => {
   ];
 
   return (
-<section id="services" className="py-20 lg:py-32 bg-white overflow-hidden">
+<section id="services" className="py-20 lg:py-32 bg-gray-900 overflow-hidden">
       <Container>
         <motion.div 
           className="text-center mb-16"
@@ -36,18 +36,19 @@ const ValuePropositions = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <motion.h2 
-            className="text-3xl lg:text-5xl font-black text-gray-900 mb-6"
+className="text-3xl lg:text-5xl font-black text-white mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             Why Choose{" "}
-            <span className="bg-gradient-to-r from-primary-500 to-purple-500 bg-clip-text text-transparent">
+<span className="bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">
               Dreamwares AI
             </span>
           </motion.h2>
-          <motion.p 
+<motion.p 
+            className="text-xl text-gray-300 max-w-3xl mx-auto"
             className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

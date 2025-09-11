@@ -6,7 +6,7 @@ import HomePage from "@/components/pages/HomePage";
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
+<div className="App bg-gray-900">
         <Routes>
           <Route path="/" element={<HomePage />} />
         </Routes>

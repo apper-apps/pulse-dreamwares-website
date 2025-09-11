@@ -39,9 +39,9 @@ const navigationItems = [
   return (
     <>
       <header className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+"fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled 
-          ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200" 
+          ? "bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-700" 
           : "bg-transparent"
       )}>
         <Container>
@@ -64,8 +64,8 @@ const navigationItems = [
 
             {/* Mobile Menu Button */}
             <button
-              onClick={toggleMobileMenu}
-              className="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-200"
+onClick={toggleMobileMenu}
+              className="md:hidden p-2 rounded-lg text-gray-300 hover:bg-gray-800 transition-colors duration-200"
             >
               <ApperIcon 
                 name={isMobileMenuOpen ? "X" : "Menu"} 
@@ -77,7 +77,7 @@ const navigationItems = [
 
         {/* Mobile Navigation Overlay */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-lg">
+<div className="md:hidden absolute top-full left-0 right-0 bg-gray-900/95 backdrop-blur-md border-b border-gray-700 shadow-lg">
             <Container>
               <nav className="py-4 space-y-2">
                 {navigationItems.map((item) => (
@@ -99,7 +99,7 @@ const navigationItems = [
       {/* Mobile Menu Backdrop */}
       {isMobileMenuOpen && (
         <div 
-          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden"
+className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
           onClick={closeMobileMenu}
         />
       )}

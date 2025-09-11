@@ -20,8 +20,8 @@ const NavigationItem = ({ label, href, active = false, onClick, className }) => 
       href={href}
       onClick={handleClick}
       className={cn(
-        "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-primary-50 hover:text-primary-600 hover:scale-105",
-        active ? "text-primary-600 bg-primary-50" : "text-gray-700",
+"px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-gray-800 hover:text-red-400 hover:scale-105",
+        active ? "text-red-400 bg-gray-800" : "text-gray-300",
         className
       )}
     >

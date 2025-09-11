@@ -1,17 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
-import Container from "@/components/atoms/Container";
-import Button from "@/components/atoms/Button";
 import { toast } from "react-toastify";
 import ApperIcon from "@/components/ApperIcon";
+import Container from "@/components/atoms/Container";
+import Button from "@/components/atoms/Button";
 const HeroSection = () => {
   const handleCTAClick = () => {
     toast.success("Thank you for your interest! We'll be in touch soon.");
   };
 
   return (
-<section id="home" className="pt-20 pb-16 lg:pt-32 lg:pb-24 bg-gradient-to-br from-blue-50 via-white to-purple-50 min-h-screen flex items-center overflow-hidden">
+    <section id="home" className="pt-20 pb-16 lg:pt-32 lg:pb-24 bg-gradient-to-br from-blue-50 via-white to-purple-50 min-h-screen flex items-center overflow-hidden">
       <Container>
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Headline */}
@@ -19,7 +18,7 @@ const HeroSection = () => {
 
           {/* Supporting Text */}
           <motion.p 
-            className="text-xl lg:text-2xl text-gray-600 leading-relaxed mb-12 max-w-3xl mx-auto"
+className="text-xl lg:text-2xl text-gray-300 leading-relaxed mb-12 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
@@ -52,13 +51,13 @@ const HeroSection = () => {
               style={{ perspective: 1000 }}
             >
               <motion.div
-                className="absolute -inset-2 bg-gradient-to-r from-success-400 via-primary-400 to-purple-400 rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"
+className="absolute -inset-2 bg-gradient-to-r from-red-600 via-red-500 to-red-700 rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"
                 animate={{
                   background: [
-                    "linear-gradient(45deg, #10B981, #2563EB, #8B5CF6)",
-                    "linear-gradient(135deg, #8B5CF6, #10B981, #2563EB)",
-                    "linear-gradient(225deg, #2563EB, #8B5CF6, #10B981)",
-                    "linear-gradient(315deg, #10B981, #2563EB, #8B5CF6)"
+                    "linear-gradient(45deg, #DC2626, #EF4444, #B91C1C)",
+                    "linear-gradient(135deg, #B91C1C, #DC2626, #EF4444)",
+                    "linear-gradient(225deg, #EF4444, #B91C1C, #DC2626)",
+                    "linear-gradient(315deg, #DC2626, #EF4444, #B91C1C)"
                   ]
                 }}
                 transition={{ duration: 3, repeat: Infinity }}
@@ -66,7 +65,7 @@ const HeroSection = () => {
               <Button 
                 size="xl" 
                 onClick={handleCTAClick}
-                className="relative shadow-2xl hover:shadow-4xl group-hover:shadow-success-500/25 transition-all duration-500 transform-gpu hover:-translate-y-2 hover:rotate-1"
+className="relative shadow-2xl hover:shadow-4xl group-hover:shadow-red-500/25 transition-all duration-500 transform-gpu hover:-translate-y-2 hover:rotate-1"
               >
                 <motion.span
                   className="relative z-10 flex items-center"
@@ -94,7 +93,7 @@ const HeroSection = () => {
 
           {/* Trust Indicators */}
           <motion.div 
-            className="text-sm text-gray-500 space-y-2"
+className="text-sm text-gray-400 space-y-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.4 }}
@@ -102,9 +101,9 @@ const HeroSection = () => {
             <p className="font-medium">Trusted by ambitious founders worldwide</p>
             <div className="flex items-center justify-center space-x-8 text-xs">
               {[
-                { color: "bg-success-500", text: "100% Code Ownership" },
-                { color: "bg-primary-500", text: "AI-Powered Development" },
-                { color: "bg-purple-500", text: "Demo-First Approach" }
+{ color: "bg-red-500", text: "100% Code Ownership" },
+                { color: "bg-red-600", text: "AI-Powered Development" },
+                { color: "bg-red-700", text: "Demo-First Approach" }
               ].map((item, index) => (
                 <motion.span 
                   key={index}
@@ -132,11 +131,12 @@ const HeroSection = () => {
             </div>
           </motion.div>
         </div>
-      </Container>
+</Container>
     </section>
   );
+};
 
-  function TypewriterHeadline() {
+function TypewriterHeadline() {
     const [currentText, setCurrentText] = useState("");
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showCursor, setShowCursor] = useState(true);
@@ -163,7 +163,7 @@ const HeroSection = () => {
 
     return (
       <motion.h1 
-        className="text-4xl sm:text-5xl lg:text-7xl font-black text-gray-900 leading-tight mb-8"
+className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-tight mb-8"
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -171,10 +171,9 @@ const HeroSection = () => {
         <span className="inline-block">
           {currentText.split(" ").map((word, wordIndex) => {
             const isHighlighted = word === "tech" || word === "business";
-            const gradientClass = word === "tech" 
-              ? "from-primary-500 to-purple-500" 
-              : "from-success-500 to-primary-500";
-
+const gradientClass = word === "tech" 
+              ? "from-red-500 to-red-700" 
+              : "from-red-600 to-red-800";
             return (
               <motion.span
                 key={wordIndex}
@@ -195,7 +194,7 @@ const HeroSection = () => {
             );
           })}
           <motion.span 
-            className="typewriter-cursor inline-block w-1 h-12 bg-primary-500 ml-1"
+className="typewriter-cursor inline-block w-1 h-12 bg-red-500 ml-1"
             animate={{ opacity: showCursor ? 1 : 0 }}
             transition={{ duration: 0.1 }}
           />
@@ -262,7 +261,7 @@ const HeroSection = () => {
         {metrics.map((metric, index) => (
           <motion.div
             key={index}
-            className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+className="bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-700"
             whileHover={{ 
               scale: 1.05, 
               rotateY: 5,
@@ -272,14 +271,14 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.0 + (index * 0.1) }}
           >
-            <motion.div 
-              className={`inline-flex items-center justify-center w-12 h-12 ${metric.color.replace('text-', 'bg-')}/10 rounded-full mb-3`}
+<motion.div 
+              className={`inline-flex items-center justify-center w-12 h-12 ${metric.color.replace('text-', 'bg-')}/20 rounded-full mb-3`}
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.8 }}
             >
               <ApperIcon name={metric.icon} size={24} className={metric.color} />
             </motion.div>
-            <motion.div 
+<motion.div 
               className={`text-3xl font-bold ${metric.color} mb-1`}
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
@@ -291,7 +290,7 @@ const HeroSection = () => {
             >
               {metric.value}{metric.suffix}
             </motion.div>
-            <div className="text-sm text-gray-600 font-medium">
+<div className="text-sm text-gray-300 font-medium">
               {metric.label}
             </div>
           </motion.div>
@@ -345,8 +344,8 @@ const HeroSection = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.0 }}
       >
-        <motion.h3
-          className="text-xl font-semibold text-gray-800 text-center mb-8"
+<motion.h3
+          className="text-xl font-semibold text-white text-center mb-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
@@ -357,15 +356,15 @@ const HeroSection = () => {
         <div className="flex items-center justify-between relative">
           {/* Progress Line */}
           <motion.div
-            className="absolute top-1/2 left-0 h-1 bg-gradient-to-r from-success-200 via-primary-200 to-purple-200 rounded-full"
+className="absolute top-1/2 left-0 h-1 bg-gradient-to-r from-red-900 via-red-800 to-red-900 rounded-full"
             style={{ width: '100%', transform: 'translateY(-50%)' }}
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 1.5, delay: 1.4 }}
           />
           
-          <motion.div
-            className="absolute top-1/2 left-0 h-1 bg-gradient-to-r from-success-500 via-primary-500 to-purple-500 rounded-full z-10"
+<motion.div
+            className="absolute top-1/2 left-0 h-1 bg-gradient-to-r from-red-500 via-red-600 to-red-700 rounded-full z-10"
             initial={{ width: '0%' }}
             animate={{ width: `${((activeStep + 1) / steps.length) * 100}%` }}
             transition={{ duration: 0.8 }}
@@ -383,10 +382,10 @@ const HeroSection = () => {
               transition={{ duration: 0.5, delay: 1.6 + (index * 0.1) }}
             >
               <motion.div
-                className={`w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 ${
+className={`w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 ${
                   index <= activeStep 
-                    ? `bg-${step.color}-500 text-white shadow-${step.color}-200` 
-                    : 'bg-white text-gray-400 border-2 border-gray-200'
+                    ? `bg-red-500 text-white shadow-red-200` 
+                    : 'bg-gray-700 text-gray-400 border-2 border-gray-600'
                 }`}
                 animate={{
                   scale: index === activeStep ? 1.2 : 1,
@@ -403,13 +402,15 @@ const HeroSection = () => {
                 className="text-center mt-4 max-w-24"
                 animate={{ opacity: index === activeStep ? 1 : 0.7 }}
               >
-                <div className={`font-semibold text-sm ${
-                  index <= activeStep ? `text-${step.color}-600` : 'text-gray-500'
+<div className={`font-semibold text-sm ${
+                  index <= activeStep ? 'text-red-400' : 'text-gray-400'
                 }`}>
                   {step.title}
                 </div>
-                <motion.div
-                  className="text-xs text-gray-500 mt-1"
+<motion.div 
+                  className={`text-xs mt-1 ${
+                    index <= activeStep ? 'text-gray-300' : 'text-gray-500'
+                  }`}
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ 
                     opacity: index === activeStep ? 1 : 0,
@@ -425,8 +426,7 @@ const HeroSection = () => {
 </div>
       </motion.div>
     );
+);
   }
-
-};
 
 export default HeroSection;
