@@ -202,19 +202,7 @@ function TestimonialsSection() {
                 transition={{ duration: 0.8, delay: (index * 0.2) + 1.0 }}
               />
             </motion.div>
-          ))}
-        </div>
-
-              {/* Decorative Elements */}
-              <motion.div 
-                className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-br from-primary-50 to-transparent rounded-tl-full -z-0"
-                initial={{ scale: 0, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: (index * 0.2) + 1.0 }}
-              />
-            </motion.div>
-          ))}
+))}
         </div>
 
         {/* Trust Indicators */}
