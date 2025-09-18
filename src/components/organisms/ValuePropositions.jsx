@@ -1,29 +1,50 @@
-import React from "react";
-import { motion } from "framer-motion";
-import Container from "@/components/atoms/Container";
-import ValueCard from "@/components/molecules/ValueCard";
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import Container from '@/components/atoms/Container';
+import ValueCard from '@/components/molecules/ValueCard';
+import { valuePropositionService } from '@/services/api/valuePropositionService';
 
-const ValuePropositions = () => {
-  const valueProps = [
-    {
-      id: "1",
-      icon: "Zap",
-      title: "AI-Assisted Development",
-      description: "Leverage cutting-edge AI tools to accelerate development timelines by 3x while maintaining enterprise-grade code quality and best practices."
-    },
-    {
-      id: "2", 
-      icon: "Eye",
-      title: "Demo-First Approach",
-      description: "See your vision come to life with working prototypes before full development. Make informed decisions with tangible demonstrations."
-    },
-    {
-      id: "3",
-      icon: "Shield",
-      title: "Complete Ownership",
-      description: "Own 100% of your code, infrastructure, and intellectual property. No vendor lock-in, no licensing fees, no hidden dependencies."
-    }
-  ];
+function ValuePropositions() {
+const [valueProps, setValueProps] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  // Load value propositions from database
+  useEffect(() => {
+    const loadValueProps = async () => {
+      setLoading(true);
+      try {
+        const items = await valuePropositionService.getAll();
+        setValueProps(items);
+      } catch (error) {
+        console.error("Error fetching value propositions:", error);
+        // Fallback data
+        setValueProps([
+          {
+            Id: 1,
+            icon_c: "Zap",
+            title_c: "AI-Assisted Development",
+            description_c: "Leverage cutting-edge AI tools to accelerate development timelines by 3x while maintaining enterprise-grade code quality and best practices."
+          },
+          {
+            Id: 2,
+            icon_c: "Eye",
+            title_c: "Demo-First Approach", 
+            description_c: "See your vision come to life with working prototypes before full development. Make informed decisions with tangible demonstrations."
+          },
+          {
+            Id: 3,
+            icon_c: "Shield",
+            title_c: "Complete Ownership",
+            description_c: "Own 100% of your code, infrastructure, and intellectual property. No vendor lock-in, no licensing fees, no hidden dependencies."
+          }
+        ]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadValueProps();
+  }, []);
 
   return (
 <section id="services" className="py-20 lg:py-32 bg-gray-900 overflow-hidden">
@@ -63,7 +84,7 @@ className="text-3xl lg:text-5xl font-black text-white mb-6"
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           {valueProps.map((prop, index) => (
             <motion.div
-              key={prop.id}
+key={prop.Id}
               initial={{ opacity: 0, y: 60, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -74,9 +95,9 @@ className="text-3xl lg:text-5xl font-black text-white mb-6"
               }}
             >
               <ValueCard
-                icon={prop.icon}
-                title={prop.title}
-                description={prop.description}
+                icon={prop.icon_c}
+                title={prop.title_c}
+                description={prop.description_c}
               />
             </motion.div>
           ))}

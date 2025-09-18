@@ -7,7 +7,7 @@ import ApperIcon from '@/components/ApperIcon';
 import { cn } from '@/utils/cn';
 import { contactService } from '@/services/api/contactService';
 function ContactSection() {
-  const [formData, setFormData] = useState({
+const [formData, setFormData] = useState({
     name: '',
     email: '',
     company: '',
@@ -89,7 +89,7 @@ function ContactSection() {
       toast.success('Thank you! Your message has been sent successfully. We\'ll get back to you soon.');
       
       // Reset form
-      setFormData({
+setFormData({
         name: '',
         email: '',
         company: '',

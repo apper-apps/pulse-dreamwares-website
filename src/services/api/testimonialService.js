@@ -1,5 +1,5 @@
-// Value Proposition Service using ApperClient for value_proposition_c table
-export const valuePropositionService = {
+// Testimonial Service using ApperClient for testimonial_c table
+export const testimonialService = {
   async getAll() {
     try {
       const { ApperClient } = window.ApperSDK;
@@ -12,16 +12,19 @@ export const valuePropositionService = {
         fields: [
           { field: { Name: "Name" } },
           { field: { Name: "Tags" } },
-          { field: { Name: "icon_c" } },
-          { field: { Name: "title_c" } },
-          { field: { Name: "description_c" } }
+          { field: { Name: "name_c" } },
+          { field: { Name: "company_c" } },
+          { field: { Name: "position_c" } },
+          { field: { Name: "image_c" } },
+          { field: { Name: "quote_c" } },
+          { field: { Name: "rating_c" } }
         ],
         orderBy: [
           { fieldName: "Name", sorttype: "ASC" }
         ]
       };
 
-      const response = await apperClient.fetchRecords('value_proposition_c', params);
+      const response = await apperClient.fetchRecords('testimonial_c', params);
       
       if (!response.success) {
         console.error(response.message);
@@ -31,7 +34,7 @@ export const valuePropositionService = {
       return response.data || [];
     } catch (error) {
       if (error?.response?.data?.message) {
-        console.error("Error fetching value propositions:", error?.response?.data?.message);
+        console.error("Error fetching testimonials:", error?.response?.data?.message);
       } else {
         console.error(error);
       }
@@ -51,13 +54,16 @@ export const valuePropositionService = {
         fields: [
           { field: { Name: "Name" } },
           { field: { Name: "Tags" } },
-          { field: { Name: "icon_c" } },
-          { field: { Name: "title_c" } },
-          { field: { Name: "description_c" } }
+          { field: { Name: "name_c" } },
+          { field: { Name: "company_c" } },
+          { field: { Name: "position_c" } },
+          { field: { Name: "image_c" } },
+          { field: { Name: "quote_c" } },
+          { field: { Name: "rating_c" } }
         ]
       };
 
-      const response = await apperClient.getRecordById('value_proposition_c', id, params);
+      const response = await apperClient.getRecordById('testimonial_c', id, params);
       
       if (!response.success) {
         console.error(response.message);
@@ -67,7 +73,7 @@ export const valuePropositionService = {
       return response.data;
     } catch (error) {
       if (error?.response?.data?.message) {
-        console.error("Error fetching value proposition:", error?.response?.data?.message);
+        console.error("Error fetching testimonial:", error?.response?.data?.message);
       } else {
         console.error(error);
       }
@@ -88,13 +94,16 @@ export const valuePropositionService = {
         records: [{
           Name: newItem.Name,
           Tags: newItem.Tags,
-          icon_c: newItem.icon_c,
-          title_c: newItem.title_c,
-          description_c: newItem.description_c
+          name_c: newItem.name_c,
+          company_c: newItem.company_c,
+          position_c: newItem.position_c,
+          image_c: newItem.image_c,
+          quote_c: newItem.quote_c,
+          rating_c: newItem.rating_c
         }]
       };
 
-      const response = await apperClient.createRecord('value_proposition_c', params);
+      const response = await apperClient.createRecord('testimonial_c', params);
       
       if (!response.success) {
         console.error(response.message);
@@ -106,7 +115,7 @@ export const valuePropositionService = {
         const failedRecords = response.results.filter(result => !result.success);
         
         if (failedRecords.length > 0) {
-          console.error(`Failed to create value propositions ${failedRecords.length} records:${JSON.stringify(failedRecords)}`);
+          console.error(`Failed to create testimonials ${failedRecords.length} records:${JSON.stringify(failedRecords)}`);
         }
         
         return successfulRecords[0]?.data || null;
@@ -115,7 +124,7 @@ export const valuePropositionService = {
       return null;
     } catch (error) {
       if (error?.response?.data?.message) {
-        console.error("Error creating value proposition:", error?.response?.data?.message);
+        console.error("Error creating testimonial:", error?.response?.data?.message);
       } else {
         console.error(error);
       }
@@ -137,13 +146,16 @@ export const valuePropositionService = {
           Id: parseInt(id),
           Name: updates.Name,
           Tags: updates.Tags,
-          icon_c: updates.icon_c,
-          title_c: updates.title_c,
-          description_c: updates.description_c
+          name_c: updates.name_c,
+          company_c: updates.company_c,
+          position_c: updates.position_c,
+          image_c: updates.image_c,
+          quote_c: updates.quote_c,
+          rating_c: updates.rating_c
         }]
       };
 
-      const response = await apperClient.updateRecord('value_proposition_c', params);
+      const response = await apperClient.updateRecord('testimonial_c', params);
       
       if (!response.success) {
         console.error(response.message);
@@ -155,7 +167,7 @@ export const valuePropositionService = {
         const failedRecords = response.results.filter(result => !result.success);
         
         if (failedRecords.length > 0) {
-          console.error(`Failed to update value propositions ${failedRecords.length} records:${JSON.stringify(failedRecords)}`);
+          console.error(`Failed to update testimonials ${failedRecords.length} records:${JSON.stringify(failedRecords)}`);
         }
         
         return successfulRecords[0]?.data || null;
@@ -164,7 +176,7 @@ export const valuePropositionService = {
       return null;
     } catch (error) {
       if (error?.response?.data?.message) {
-        console.error("Error updating value proposition:", error?.response?.data?.message);
+        console.error("Error updating testimonial:", error?.response?.data?.message);
       } else {
         console.error(error);
       }
@@ -184,7 +196,7 @@ export const valuePropositionService = {
         RecordIds: [parseInt(id)]
       };
 
-      const response = await apperClient.deleteRecord('value_proposition_c', params);
+      const response = await apperClient.deleteRecord('testimonial_c', params);
       
       if (!response.success) {
         console.error(response.message);
@@ -196,7 +208,7 @@ export const valuePropositionService = {
         const failedRecords = response.results.filter(result => !result.success);
         
         if (failedRecords.length > 0) {
-          console.error(`Failed to delete value propositions ${failedRecords.length} records:${JSON.stringify(failedRecords)}`);
+          console.error(`Failed to delete testimonials ${failedRecords.length} records:${JSON.stringify(failedRecords)}`);
         }
         
         return successfulRecords.length > 0;
@@ -205,11 +217,11 @@ export const valuePropositionService = {
       return false;
     } catch (error) {
       if (error?.response?.data?.message) {
-        console.error("Error deleting value proposition:", error?.response?.data?.message);
+        console.error("Error deleting testimonial:", error?.response?.data?.message);
       } else {
         console.error(error);
       }
       return false;
     }
-}
+  }
 };

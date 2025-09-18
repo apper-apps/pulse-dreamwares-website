@@ -1,49 +1,70 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import Container from '@/components/atoms/Container';
-import ApperIcon from '@/components/ApperIcon';
-const testimonials = [
-  {
-    id: 1,
-    name: "Sarah Johnson",
-    company: "TechFlow Solutions",
-    position: "CEO",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=80&h=80&fit=crop&auto=format",
-    quote: "Working with DreamWares AI was a game-changer for our business. They delivered a custom automation platform that increased our productivity by 300%. The team's expertise and dedication to understanding our unique needs was exceptional.",
-    rating: 5
-  },
-  {
-    id: 2,
-    name: "Michael Chen",
-    company: "StartupLab Inc.",
-    position: "CTO",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&auto=format",
-    quote: "The no-code solution they built for us revolutionized how we handle client onboarding. What used to take weeks now happens in hours. Their technical prowess combined with business acumen is truly remarkable.",
-    rating: 5
-  },
-  {
-    id: 3,
-    name: "Emily Rodriguez",
-    company: "Growth Dynamics",
-    position: "Operations Director",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&auto=format",
-    quote: "From initial consultation to final deployment, the process was seamless. They not only delivered on time and within budget but also provided ongoing support that has been invaluable for our team's success.",
-    rating: 5
-  },
-  {
-    id: 4,
-    name: "David Thompson",
-    company: "InnovateNow",
-    position: "Founder",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&h=80&fit=crop&auto=format",
-    quote: "The AI-powered testing solution they developed caught critical bugs that our manual testing missed. The ROI was evident within the first month. I highly recommend them for any business looking to leverage technology for growth.",
-    rating: 5
-  }
-];
-
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { testimonialService } from "@/services/api/testimonialService";
+import ApperIcon from "@/components/ApperIcon";
+import Container from "@/components/atoms/Container";
 function TestimonialsSection() {
+  const [testimonials, setTestimonials] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  // Load testimonials from database
+  useEffect(() => {
+    const loadTestimonials = async () => {
+      setLoading(true);
+      try {
+        const items = await testimonialService.getAll();
+        setTestimonials(items);
+      } catch (error) {
+        console.error("Error fetching testimonials:", error);
+        // Fallback data
+        setTestimonials([
+          {
+            Id: 1,
+            name_c: "Sarah Johnson",
+            company_c: "TechFlow Solutions", 
+            position_c: "CEO",
+            image_c: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=80&h=80&fit=crop&auto=format",
+            quote_c: "Working with DreamWares AI was a game-changer for our business. They delivered a custom automation platform that increased our productivity by 300%. The team's expertise and dedication to understanding our unique needs was exceptional.",
+            rating_c: 5
+          },
+          {
+            Id: 2,
+            name_c: "Michael Chen",
+            company_c: "StartupLab Inc.",
+            position_c: "CTO",
+            image_c: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&auto=format",
+            quote_c: "The no-code solution they built for us revolutionized how we handle client onboarding. What used to take weeks now happens in hours. Their technical prowess combined with business acumen is truly remarkable.",
+            rating_c: 5
+          },
+          {
+            Id: 3,
+            name_c: "Emily Rodriguez",
+            company_c: "Growth Dynamics",
+            position_c: "Operations Director",
+            image_c: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&auto=format",
+            quote_c: "From initial consultation to final deployment, the process was seamless. They not only delivered on time and within budget but also provided ongoing support that has been invaluable for our team's success.",
+            rating_c: 5
+          },
+          {
+            Id: 4,
+            name_c: "David Thompson",
+            company_c: "InnovateNow",
+            position_c: "Founder",
+            image_c: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&h=80&fit=crop&auto=format",
+            quote_c: "The AI-powered testing solution they developed caught critical bugs that our manual testing missed. The ROI was evident within the first month. I highly recommend them for any business looking to leverage technology for growth.",
+            rating_c: 5
+          }
+        ]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadTestimonials();
+}, []);
+
   return (
-<section id="testimonials" className="py-20 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+    <section id="testimonials" className="py-20 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
       <Container>
         <motion.div 
           className="text-center mb-16"
@@ -75,7 +96,7 @@ function TestimonialsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div 
-              key={testimonial.id}
+              key={testimonial.Id}
               className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden hover:border-primary-200"
               initial={{ opacity: 0, y: 50, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -114,7 +135,7 @@ function TestimonialsSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: (index * 0.2) + 0.4 }}
               >
-                {[...Array(testimonial.rating)].map((_, starIndex) => (
+                {[...Array(testimonial.rating_c)].map((_, starIndex) => (
                   <motion.div
                     key={starIndex}
                     initial={{ opacity: 0, scale: 0 }}
@@ -143,7 +164,7 @@ function TestimonialsSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: (index * 0.2) + 0.6 }}
               >
-                "{testimonial.quote}"
+                "{testimonial.quote_c}"
               </motion.blockquote>
 
               {/* Client Info */}
@@ -155,27 +176,34 @@ function TestimonialsSection() {
                 transition={{ duration: 0.5, delay: (index * 0.2) + 0.8 }}
               >
                 <motion.img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-16 h-16 rounded-full object-cover border-2 border-primary-100"
-                  whileHover={{ 
-                    scale: 1.1,
-                    borderColor: "#2563EB" 
-                  }}
-                  transition={{ duration: 0.3 }}
+                  src={testimonial.image_c}
+                  alt={testimonial.name_c}
+                  className="w-16 h-16 rounded-full object-cover border-2 border-primary-100 mr-4"
                 />
-                <div className="ml-4">
-                  <h4 className="text-lg font-semibold text-gray-900">
-                    {testimonial.name}
+                <div className="text-left">
+                  <h4 className="font-bold text-gray-900 text-lg leading-tight">
+                    {testimonial.name_c}
                   </h4>
                   <p className="text-primary-600 font-medium">
-                    {testimonial.position}
+                    {testimonial.position_c}
                   </p>
                   <p className="text-gray-500 text-sm">
-                    {testimonial.company}
+                    {testimonial.company_c}
                   </p>
                 </div>
               </motion.div>
+
+              {/* Decorative Elements */}
+              <motion.div 
+                className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-br from-primary-50 to-transparent rounded-tl-full -z-0"
+                initial={{ scale: 0, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: (index * 0.2) + 1.0 }}
+              />
+            </motion.div>
+          ))}
+        </div>
 
               {/* Decorative Elements */}
               <motion.div 
